@@ -1,11 +1,8 @@
-import {WORKER_SECRET} from "./keys";
-
 function hexEncode(bytes) {
     return Array.from(new Uint8Array(bytes)).map(b => b.toString(16).padStart(2,'0')).join('');
 }
 
-export async function sign(keyPath, timestamp) {
-    const secret = WORKER_SECRET;
+export async function sign(keyPath, timestamp, secret) {
     // message: `${keyPath}\n${timestamp}`
     const msg = new TextEncoder().encode(`${keyPath}\n${timestamp}`);
     const key = await crypto.subtle.importKey(
