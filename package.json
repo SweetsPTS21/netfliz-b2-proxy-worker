@@ -1,8 +1,5 @@
 {
   "devDependencies": {
     "wrangler": "^4.49.0"
-  },
-  "dependencies": {
-    "dotenv": "^17.2.3"
   }
 }
