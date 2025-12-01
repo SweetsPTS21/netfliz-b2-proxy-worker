@@ -12,7 +12,7 @@ export default {
         const signature = await sign(key, timestamp, env.WORKER_SECRET);
 
         // Get presigned URL from your backend (secure)
-        const presignRes = await fetch(`${env.BACKEND_API_ENDPOINT}/api/v1/file/presign?key=${encodeURIComponent(key)}`, {
+        const presignRes = await fetch(`${env.BACKEND_API_ENDPOINT}/api/v1/file/presign-url?key=${encodeURIComponent(key)}`, {
             method: 'GET',
             headers: {
                 'X-Worker-Timestamp': timestamp,

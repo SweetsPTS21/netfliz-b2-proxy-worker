@@ -7,13 +7,3 @@ compatibility_date = "2025-12-01"
 account_id = "a5a59691629a572fe2e922a6f6a47dfd"
 # Optional: if you use zones/routes set route instead of routes in dashboard
 routes = ["cdn.swpts.site/videos/*"]
-
-# If using module workers:
-# type = "javascript"
-
-[observability]
-[observability.logs]
-enabled = false
-head_sampling_rate = 1
-invocation_logs = true
-persist = true
