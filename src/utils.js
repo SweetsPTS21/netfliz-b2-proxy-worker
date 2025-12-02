@@ -15,7 +15,8 @@ export function filterForwardHeaders(originHeaders) {
         'cache-control',
         'accept-ranges',
         'content-range',
-        'content-disposition'
+        'content-disposition',
+        'cf-cache-status'
     ];
     for (const name of allowList) {
         const v = originHeaders.get(name);

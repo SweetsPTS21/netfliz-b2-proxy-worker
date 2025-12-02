@@ -68,7 +68,7 @@ export default {
         // 3) return response to client, let CF cache it
         const headers = filterForwardHeaders(originRes.headers)
         // enforce caching on edge
-        headers.set('Cache-Control', `public, max-age=3600, s-maxage=${cacheTime}`) // s-maxage = edge TTL
+        headers.set('Cache-Control', `public, max-age=3600, s-maxage=${cacheTime}, immutable`) // s-maxage = edge TTL
         headers.set('Accept-Ranges', 'bytes');
 
         return new Response(originRes.body, {status: originRes.status, headers})
