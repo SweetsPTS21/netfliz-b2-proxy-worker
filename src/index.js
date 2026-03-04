@@ -116,8 +116,10 @@ export default {
             }
 
             // Parse key from path:  /files/video/videos/abc.mp4 → video/videos/abc.mp4
+            // Decode '+' as space and handle percent-encoded chars (e.g. Test1+Part1.mp3 → Test1 Part1.mp3)
             const url = new URL(request.url);
-            const key = url.pathname.replace(/^\/files\//, '');
+            const rawPath = url.pathname.replace(/^\/files\//, '');
+            const key = decodeURIComponent(rawPath.replace(/\+/g, ' '));
             if (!key) return new Response('Missing key', { status: 400 });
 
             const cacheTime = Number(env.CACHE_TTL) || 86400;
